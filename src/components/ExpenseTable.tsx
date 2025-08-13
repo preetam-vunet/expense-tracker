@@ -1,20 +1,11 @@
-import { useState, useEffect } from "react";
-import type { Expense } from '../types'
-import { getExpenses, deleteExpense } from "../localStorageService";
+import { useExpenseStore } from "../store/ExpenseStore";
 
 export default function ExpenseTable() {
-    const [expenses, setExpenses] = useState<Expense[]>([]);
 
-    useEffect(() => {
-        setExpenses(getExpenses());
-    }, [])
+    const expenses = useExpenseStore((state) => state.expenses)
+    const deleteExpense = useExpenseStore((state) => state.deleteExpense)
 
     if (expenses.length === 0) return <p>No Expenses Found.</p>
-
-    const handleExpenseDelete = (id: string) => {
-        deleteExpense(id);
-        setExpenses(getExpenses());
-    }
 
     return (
         <>
@@ -35,7 +26,9 @@ export default function ExpenseTable() {
                             <td>{exp.amount}</td>
                             <td>{exp.category}</td>
                             <td>{exp.date}</td>
-                            <button onClick={() => handleExpenseDelete(exp.id)}>Delete</button>
+                            <td>
+                                <button onClick={() => deleteExpense(exp.id)}>Delete</button>
+                            </td>  
                         </tr>
                     ))}
                 </tbody>

@@ -1,10 +1,13 @@
 import {useState} from 'react';
 import {v4 as uuid} from 'uuid';
 import type {Expense, Category} from '../types';
-import { addExpense } from '../localStorageService';
+import { useExpenseStore } from '../store/ExpenseStore';
 import {categories} from '../types'
 
 export default function AddExpensesForm() {
+
+    const addExpense = useExpenseStore((state) => state.addExpense);
+
     const [title, setTitle] = useState("");
     const [amount, setAmount] = useState<number>(0);
     const [category, setCategory] = useState<Category>("");
