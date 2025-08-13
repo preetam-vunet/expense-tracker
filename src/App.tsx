@@ -1,5 +1,6 @@
 import AddExpensesForm from './components/AddExpenseForm'
 import ExpenseTable from './components/ExpenseTable'
+import ExpenseChart from './components/ExpenseCharts'
 import './App.css'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <AddExpensesForm/>
       <ExpenseTable/>
+      <ExpenseChart/>
     </>
   )
 }

@@ -9,7 +9,7 @@ export default function AddExpensesForm() {
     const addExpense = useExpenseStore((state) => state.addExpense);
 
     const [title, setTitle] = useState("");
-    const [amount, setAmount] = useState<number>(0);
+    const [amount, setAmount] = useState<number | null>(null);
     const [category, setCategory] = useState<Category>("");
     const [date, setDate] = useState("");
 
@@ -28,7 +28,7 @@ export default function AddExpensesForm() {
         addExpense(newExpense);
 
         setTitle("");
-        setAmount(0);
+        setAmount(null);
         setCategory("");
         setDate("");
     } 
@@ -46,7 +46,7 @@ export default function AddExpensesForm() {
                 <input 
                     type="number"
                     placeholder="Amount"
-                    value={amount}
+                    value={amount ?? ""}
                     onChange={(e) => setAmount(Number(e.target.value))} 
                     required
                 />
