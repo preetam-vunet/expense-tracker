@@ -1,4 +1,5 @@
 import AddExpensesForm from './components/AddExpenseForm'
+import ExpenseTable from './components/ExpenseTable'
 import './App.css'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
       <AddExpensesForm/>
+      <ExpenseTable/>
     </>
   )
 }
