@@ -10,13 +10,11 @@ import {
 
 import type { TooltipItem } from "chart.js"; 
 
-// Register ChartJS components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function ExpenseChart() {
   const expenses = useExpenseStore((state) => state.expenses);
 
-  // Calculate total amount per category
   const categoryAmounts = categories.map((cat) =>
     expenses
       .filter((e) => e.category === cat)
@@ -60,8 +58,13 @@ export default function ExpenseChart() {
   };
 
   return (
-    <div className="max-w-sm mx-auto mt-6">
-      <Pie data={data} options={options} />
+    <div className="bg-white shadow-md rounded-lg p-6 max-w-md mx-auto mt-6">
+      <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">
+        Expenses by Category
+      </h2>
+      <div className="w-full h-64 flex justify-center items-center">
+        <Pie data={data} options={options} />
+      </div>
     </div>
   );
 }
