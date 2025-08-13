@@ -1,10 +1,11 @@
+import AddExpensesForm from './components/AddExpenseForm'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <div className='underline'>Hello</div>
+      <AddExpensesForm/>
     </>
   )
 }

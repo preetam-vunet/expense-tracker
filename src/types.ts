@@ -1,4 +1,6 @@
-export type Category = "Food" | "Transport" | "Shopping" | "Bills" | "Entertainment" | "Other"; 
+export const categories = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Other"]
+
+export type Category = (typeof categories)[number];
 
 export interface Expense {
     id: string,
